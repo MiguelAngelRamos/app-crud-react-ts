@@ -1,6 +1,7 @@
 // import './App.css'
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
-import Login from "./views/login/Login"
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Login from "./views/login/Login";
+
 function App() {
 //* npm run dev
   return (
@@ -13,3 +14,5 @@ function App() {
 }
 
 export default App
+
+/* Microfrontend*/
