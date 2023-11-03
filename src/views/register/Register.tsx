@@ -1,5 +1,6 @@
 import { useFormik } from 'formik';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 const Register: React.FC = () => {
@@ -131,6 +132,10 @@ const Register: React.FC = () => {
             
           </div>
         </form>
+
+        <p className="mt-3">
+          ¿Ya tienes cuenta? <Link to="/login">Inicia sesión aquí</Link>
+        </p>
       </div>
     </div>
   </div>

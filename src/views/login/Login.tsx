@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 const Login: React.FC = () => {
 
   return (
@@ -27,6 +29,10 @@ const Login: React.FC = () => {
               
             </div>
           </form>
+
+          <p className="mt-3">
+            ¿No tienes cuenta? <Link to="/register">Regístrate aquí</Link>
+          </p>
         </div>
       </div>
     </div>
