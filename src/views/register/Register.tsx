@@ -14,10 +14,34 @@ const Register = () => {
                />
           </div>
 
+          <div className="mb-3">
+            <label htmlFor="" className="form-label">Rol</label>
+            <input 
+              type="text"
+              className="form-control"
+               />
+          </div>
+
           <div className="mb-3" >
-            <label htmlFor="" className="form-label">Password</label>
+            <label htmlFor="" className="form-label">Contraseña</label>
             <input 
               type="password"
+              className="form-control"
+            />
+          </div>
+
+          <div className="mb-3" >
+            <label htmlFor="" className="form-label">Confirmar Contraseña</label>
+            <input 
+              type="password"
+              className="form-control"
+            />
+          </div>
+
+          <div className="mb-3" >
+            <label htmlFor="" className="form-label">Imagen</label>
+            <input 
+              type="file"
               className="form-control"
             />
           </div>
