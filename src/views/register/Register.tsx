@@ -1,12 +1,12 @@
 import { useFormik } from 'formik';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const Register: React.FC = () => {
 
   const [error, setError] = useState<string | null>(null);
-  
+  const navigate = useNavigate();
   const formik = useFormik({
     initialValues: {
       username: '',
@@ -40,6 +40,7 @@ const Register: React.FC = () => {
           }
         });
 
+        navigate('/students');
       } catch (error) {
         if(axios.isAxiosError(error)) {
           setError(error.response?.data?.error);
