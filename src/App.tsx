@@ -1,6 +1,7 @@
 // import './App.css'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "./views/login/Login";
+import Register from "./views/register/Register";
 
 function App() {
 //* npm run dev
@@ -8,6 +9,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Login/>}/>
+        <Route path="/" element={<Register/>}/>
       </Routes>
     </Router>
   )
