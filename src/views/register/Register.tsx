@@ -40,7 +40,7 @@ const Register: React.FC = () => {
           }
         });
 
-        navigate('/students');
+        navigate('/login');
       } catch (error) {
         if(axios.isAxiosError(error)) {
           setError(error.response?.data?.error);
