@@ -1,14 +1,20 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { useFormik } from 'formik';
 import axios from 'axios';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
 
 const Login: React.FC = () => {
 
   const navigate = useNavigate();
   const [error, setError] = useState<string | null>(null);
-  const { login } = useAuth();
+  const { login, isAuthenticated } = useAuth();
+
+  useEffect(() => {
+    if(isAuthenticated) {
+      navigate('/students'); //* Redirige a la página de estudiantes, si el usuario esta autenticado
+    } 
+  }, [isAuthenticated, navigate]);
 
   const formik = useFormik({
     initialValues: {

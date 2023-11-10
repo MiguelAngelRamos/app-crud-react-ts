@@ -25,8 +25,23 @@ const Students: React.FC = () => {
       })
   }, []);
 
-  const deleteStudent = (studentId: number) => {
-    console.log(studentId);
+  const deleteStudent = async (studentId: number) => {
+    //* localhost:3000/students/68
+   try {
+    //* recuperar el token
+    const token = localStorage.getItem('authToken');
+    const headers = {
+      Authorization: `Bearer ${token}`
+    }
+
+    //* Realizar la solicitud de Eliminación con el token de autenticación
+    const response = await axios.delete(`http://localhost:3000/students/${studentId}`, {headers});
+    if(response.status === 204) {
+      setStudents(students.filter(student => student.id !== studentId))
+    }
+   } catch (error) {
+    console.log('Error al eliminar estudiante', error);
+   }
   }
 
   if (error) return <p>{error}</p>
@@ -59,7 +74,6 @@ const Students: React.FC = () => {
     </div>
 
   )
-
 
 }
 
