@@ -15,7 +15,7 @@ const Students: React.FC = () => {
       Authorization: `Bearer ${token}`,
     };
 
-    axios.get(`http://localhost:3000/students`, { headers })
+    axios.get("http://localhost:3000/students", { headers })
       .then(response => {
         setStudents(response.data);
       }).catch(err => {
@@ -24,6 +24,10 @@ const Students: React.FC = () => {
         }
       })
   }, []);
+
+  const deleteStudent = (studentId: number) => {
+    console.log(studentId);
+  }
 
   if (error) return <p>{error}</p>
   return (
@@ -40,10 +44,13 @@ const Students: React.FC = () => {
         </thead>
         <tbody className="table-group-divider">
           {students.map(student => (
-            <tr>
+            <tr key={student.id}>
               <td>{student.name}</td>
               <td>{student.age}</td>
-              <td>Eliminar - Update</td>
+              <td>
+                Update
+                <i className="text-danger fa-solid fa-trash" onClick={()=> deleteStudent(student.id)}></i>
+              </td>
            </tr>
           ))}
      
