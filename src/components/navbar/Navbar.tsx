@@ -22,7 +22,7 @@ const Navbar:React.FC = () => {
   const handleLogout = () => {
     logout();
     // window.location.href = '/login'; //* se puede utilizar codigo js dentro de ts
-    navigate("/login")
+    navigate("/")
   }
  
   return (

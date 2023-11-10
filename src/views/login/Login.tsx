@@ -2,11 +2,13 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useFormik } from 'formik';
 import axios from 'axios';
 import { useState } from 'react';
+import { useAuth } from '../../contexts/AuthContext';
 
 const Login: React.FC = () => {
 
   const navigate = useNavigate();
   const [error, setError] = useState<string | null>(null);
+  const { login } = useAuth();
 
   const formik = useFormik({
     initialValues: {
@@ -15,12 +17,7 @@ const Login: React.FC = () => {
     },
     onSubmit: async values => {
       try {
-        const response = await axios.post('http://localhost:3000/users/login', values);
-        const token = response.data.token;
-
-        //* lo vamos a guardar en una de datos en el navegador
-        localStorage.setItem('authToken', token);
-
+        await login(values.username, values.password);
         navigate('/students');
       } catch (error) {
         if(axios.isAxiosError(error)) {

@@ -14,6 +14,7 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 //* Componente AuthProvider engloba cualquier parte de la aplicación que necesitemos autenticar.
 
 export const AuthProvider:React.FC<{children: ReactNode}> = ({children}) => {
+  
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(!!localStorage.getItem('authToken'));
 
   //* Función para iniciar sesión
