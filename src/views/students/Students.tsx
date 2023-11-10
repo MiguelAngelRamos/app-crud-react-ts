@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { IStudent } from "../../interfaces/IStudent";
+import { Link } from 'react-router-dom';
 import axios from "axios";
 
 const Students: React.FC = () => {
@@ -49,6 +50,7 @@ const Students: React.FC = () => {
 
     <div className="container mt-5">
       <h2 className="mb-2">Listado de Estudiantes</h2>
+      <Link to="/create-student" className="btn btn-success mb-3">Crear Nuevo Estudiante</Link>
       <table className="table">
         <thead>
           <tr>
@@ -63,7 +65,9 @@ const Students: React.FC = () => {
               <td>{student.name}</td>
               <td>{student.age}</td>
               <td>
-                Update
+                <Link to={`/edit-student/${student.id}`}>
+                  <i className="text-success fa-solid fa-pen-to-square mx-3"></i>
+                </Link>
                 <i className="text-danger fa-solid fa-trash" onClick={()=> deleteStudent(student.id)}></i>
               </td>
            </tr>
